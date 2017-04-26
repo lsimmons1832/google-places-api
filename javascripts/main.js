@@ -2,7 +2,7 @@ $(document).ready(function (){
 	let myData = [];
 	let First = [];
 
-	const apiKey = "";
+	const apiKey = "AIzaSyDoSObb4h4_CDkwMaqm6dCyPxuF2pL3hTA";
 
 $("body").on("click", "li", (e) => {
 	console.log(e.target.innerHTML);
@@ -17,7 +17,7 @@ $("body").on("click", ".place", (e) =>{
 	let place_id = e.target.id;
 	console.log(e);
 	loadDetails(place_id).then((result) => {
-		writeAddress(result.formatted_address)
+		writeAddress(result.formatted_address);
 	});
 });
 
@@ -27,7 +27,7 @@ const loadDetails = (place_id) => {
 		.done((data) => resolve(data.result))
 		.fail((error) => reject(error));
 	});
-}
+};
 
 
 	const loadPlaces = (dropdownType) => {
@@ -40,8 +40,9 @@ const loadDetails = (place_id) => {
 
 const writeAddress = (address) => {
 	let outputString = `<div>${address}</div>`;
-	$("#address").html(outputString);
-}
+
+	$("#address").html(`<h1>Address For Selected</h1><br>` + outputString);
+};
 
 const writePlaces = (results)=>{
 	let outputString = "";
